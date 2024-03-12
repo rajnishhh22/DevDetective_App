@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* color: white; */
+}
+:root{
+     --colorDark1: #141D2F;
+     --colorDark2:#1E2A47;
+     --colorLight1:white;
+     --colorLight2:rgba(70,88,109,0.15);
+
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    /* background-color: var(--colorDark1); */
+}
+
+.heading{
+    all: unset;
+    display: flex;
+    justify-content: space-between;
+    gap:3em;
+    width:350px;
+}
+
+.heading div{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.inp-con{
+    all: unset;
+    background-color: #1E2A47;
+   display: flex;
+   gap: 2rem ;
+   justify-content: cemter;
+   align-items: center;
+   margin: 0 auto;
+   padding: 5px;
+   width: 330px;
+   padding-left: 20px;
+   border-radius: 8px;
+}
+.inp-img-div{
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.inp-img-div input{
+    all: unset;
+    padding:4px;
+    border: none;
+    background-color:#1E2A47;
+}
+
+.inp-con button{
+    all: unset;
+    background-color:#0079ff;
+    text-align: center;
+    height: 2.5rem;
+    width: 4rem;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.infocont{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    gap: 50px;
+    border-radius: 8px; 
+    padding: 20px;
+}
+.right-container{
+    display: flex;
+    flex-direction: column;
+}
+.profinfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.profpic{
+    height: 70px;
+    width: 70px;
+    border-radius:50px;
+}
+
+.bio{
+   margin: 25px 0px;
+}
+.profDetails{
+    display: flex;
+    border: 1px solid black;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+
+}
+.profileDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+   
+}
+
+.user-details-con{
+    display: flex;
+    flex-direction: column;
+    margin: 25px 0px;
+    gap: 25px;
+  
+}
+.user-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.details{
+    display: flex;
+    gap:5px;
+}
+
+    
+   
+    
+   
+    
+
+  
+
+
