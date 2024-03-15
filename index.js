@@ -9,7 +9,7 @@ const searchButton = document.querySelector("[search-button]")
 
 
 
-searchProfile("rajnishhh22")
+
 
 searchButton.addEventListener("click", ()=>{
   if(userInput.value) {
@@ -17,7 +17,7 @@ searchButton.addEventListener("click", ()=>{
     searchProfile(github_username)
   }
     else{
-      console.log(alert("Enter username in input filed"))
+     alert("Enter username in input filed")
     }
 
   }
@@ -26,24 +26,25 @@ searchButton.addEventListener("click", ()=>{
 async function searchProfile(github_username){
   try{
     const response = await fetch(`https://api.github.com/users/${github_username}`)
+    console.log("Response catch")
     const data =await response.json()
-    console.log(data);
-    if(!data?.login){
-      throw(data)
-    }
-    renderinfo(data)
+    console.log(data)
     
+     
+    if(!data?.login){
+      throw(error)
+    }
+    renderinfo(data);
+
   }
   catch(error){
-    alert("No such Username is Present")
+    alert("No such Username is Present");
+    console.log(error)
+    
   }
-   
-       
-  
- 
 }
 
-function renderinfo(data){
+async function renderinfo(data){
     const profileName= document.querySelector("[ProfileName]")
     const userName = document.querySelector("[userName]")
     const date = document.querySelector("[join-Date]")
@@ -58,20 +59,50 @@ function renderinfo(data){
     const twitter = document.querySelector("[user-twitter]")
     const company = document.querySelector("[user-company]");
 
-    
-    avatar.src = `${data?.avatar_url}`
+    if(data?.avatar_url){
+      avatar.src = `${data?.avatar_url}`
+    }
+    else{
+      avatar.src = ""
+    }
+  
     userName.innerText = `@${data?.login}`
     userName.setAttribute("href",`https://github.com/${data?.login}`)
     profileName.innerText = `${data?.name}`
     let dt =  new Date(`${data?.created_at}`)
-    date.innerText = `Joined ${dt.getFullYear()} / ${(dt.getMonth() + 1)} / ${dt.getDate()}`;
-    aboutUser.innerText = `${data?.bio}`
+    date.innerText = `Joined  ${dt.getDate()} / ${(dt.getMonth() + 1)} / ${dt.getFullYear()}`;
+    if(data?.bio){
+      aboutUser.innerText = `${data?.bio}`
+    }
+    else{
+      aboutUser.innerText = 'The Profile has no bio'
+    }
+    
     userRepo.innerText = `${data?.public_repos}`
     followers.innerText = `${data?.followers}`
     following.innerText = `${data?.following}`
     loc.innerText = `${data?.location}`
-    blog.innerText = `${data?.blog}`
-    twitter.innerText = `${data?.twitter_username}`
+    if(data?.blog !== ""){
+      blog.innerText = `${data?.blog}`
+      blog.setAttribute("href",`https:${data?.blog}.bio.link`)
+      console.log(blog)
+    }
+    else{
+      blog.innerText = "Not Available"
+    }
+    
+    if(data?.twitter_username !== null){
+      twitter.innerText = `${data?.twitter_username}`
+      twitter.setAttribute("href",`${data?.twitter_username}`)
+      console.log(twitter)
+    }
+    else{
+      twitter.innerText="Not Available"
+      twitter.setAttribute("href","#")
+      console.log(twitter)
+    }
+    
+   
     company.innerText = `${data?.company}`
 
   
@@ -111,4 +142,4 @@ function renderinfo(data){
   })
 
 
-
+searchProfile("rajnishhh22")
